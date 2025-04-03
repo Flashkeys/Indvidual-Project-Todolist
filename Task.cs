@@ -21,6 +21,7 @@
         public Status Stat { get; set; }
         public string Project { get; set; }
 
+        // Check if task title already exists
         public override bool Equals(object? x)
         {
             var task = x as Task;

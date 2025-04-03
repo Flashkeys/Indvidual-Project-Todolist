@@ -9,26 +9,21 @@ namespace Indvidual_Project_Todolist
             Tasks = new List<Task>();
         }
         public List<Task> Tasks { get; set; }
-
+        // Add a task to the list
         public void AddTask(Task task)
         {
             Tasks.Add(task);
-            //Tasks = Tasks.OrderBy(p => p.Date).ToList();
         }
+        // Remove a task from the list
         public void RemoveTask(Task task)
         {
             Tasks.Remove(task);
         }
+        // Print the list of tasks
         public void PrintTasks()
         {
             foreach (var task in Tasks)
             {
-                /*
-                Console.WriteLine(task.Title.PadRight(20) +
-                    task.Date.ToString("yyyy-MM-dd").PadRight(20) +
-                    Enum.GetName<Task.Status>(task.Stat).PadRight(20) +
-                    task.Project);
-                */
                 Console.Write(task.Title.PadRight(20));
                 Console.Write(task.Date.ToString("yyyy-MM-dd").PadRight(20));
 
@@ -50,7 +45,7 @@ namespace Indvidual_Project_Todolist
                 Console.WriteLine(task.Project);
             }
         }
-
+        // Load the task list from a JSON file
         public static TaskList Load(string filePath)
         {
             try
@@ -68,6 +63,7 @@ namespace Indvidual_Project_Todolist
                 }
                 return taskList;
             }
+            // If the file is not found, create a new task list with some default tasks
             catch (System.IO.FileNotFoundException)
             {
                 TaskList taskList = new TaskList();
@@ -80,6 +76,7 @@ namespace Indvidual_Project_Todolist
                 return taskList;
             }
         }
+        // Save the task list to a JSON file
         public void Save(string filePath)
         {
             string contents = JsonSerializer.Serialize<TaskList>(this);

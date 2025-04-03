@@ -122,6 +122,7 @@ while (true)
                 Console.ResetColor();
                 break;
             }
+        // Remove a task
         case "4":
             {
                 Console.Write("Enter the Task Title you want to remove: ");
@@ -157,4 +158,3 @@ while (true)
             }
     }
 }
-
